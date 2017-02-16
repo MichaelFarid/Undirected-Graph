@@ -12,5 +12,11 @@ public class GraphTester
 		test.addEdge(5, 4);
 		test.addEdge(4, 6);
 		System.out.println(test);
+		int[] solution = test.getBFSPath(0, 3);
+		System.out.println("The path from 0 to 3:");
+		for (int i : solution)
+		{
+			System.out.println(i);
+		}
 	}
 }
