@@ -24,9 +24,9 @@ public class UndirectedGraph
 	public void addEdge(int x, int y)
 	{
 		if (x < 0 || y < 0)
-			throw new IllegalArgumentException("Vertice ID must be greater than zero ");
+			throw new IllegalArgumentException("Vertices' IDs must be greater than zero ");
 		if (x >= v || y >= v)
-			throw new IllegalArgumentException("One or both vertice IDs inputted do not exist");
+			throw new IllegalArgumentException("One or both vertices' IDs inputted do not exist");
 		if (x != y)
 		{
 			adjacencylist.get(x).add(y);
@@ -42,9 +42,9 @@ public class UndirectedGraph
 	public void removeEdge(int x, int y)
 	{
 		if (x < 0 || y < 0)
-			throw new IllegalArgumentException("Vertice ID must be greater than zero ");
+			throw new IllegalArgumentException("Vertices' IDs must be greater than zero ");
 		if (x >= v || y >= v)
-			throw new IllegalArgumentException("One or both vertice IDs inputted do not exist");
+			throw new IllegalArgumentException("One or both vertices' IDs inputted do not exist");
 		if (!isConnected(x, y))
 			throw new IllegalArgumentException("The vertices are not connected");
 		else if (x != y)
@@ -61,20 +61,18 @@ public class UndirectedGraph
 	public boolean isConnected(int x, int y)
 	{
 		if (x < 0 || y < 0)
-			throw new IllegalArgumentException("Vertice ID must be greater than zero ");
+			throw new IllegalArgumentException("Vertices' IDs must be greater than zero ");
 		if (x >= v || y >= v)
-			throw new IllegalArgumentException("One or both vertice IDs inputted do not exist");
-		if (adjacencylist.get(x).contains(y))
-			return true;
-		return false;
+			throw new IllegalArgumentException("One or both vertices' IDs inputted do not exist");
+		return adjacencylist.get(x).contains(y);
 	}
 
 	public int getDegree(int n)
 	{
 		if (n < 0)
-			throw new IllegalArgumentException("Vertice ID must be greater than zero ");
+			throw new IllegalArgumentException("Vertices' IDs must be greater than zero ");
 		if (n >= v)
-			throw new IllegalArgumentException("Vertice ID inputted do not exist");
+			throw new IllegalArgumentException("Vertices' IDs inputted do not exist");
 		return adjacencylist.get(n).size();
 	}
 
@@ -97,9 +95,9 @@ public class UndirectedGraph
 	public int getNumVertextSelfLoop(int n)
 	{
 		if (n < 0)
-			throw new IllegalArgumentException("Vertice ID must be greater than zero ");
+			throw new IllegalArgumentException("Vertex ID must be greater than zero ");
 		if (n >= v)
-			throw new IllegalArgumentException("Vertice ID inputted do not exist");
+			throw new IllegalArgumentException("Vertex ID inputted do not exist");
 		int count = 0;
 		for (int i : adjacencylist.get(n))
 		{
@@ -153,9 +151,9 @@ public class UndirectedGraph
 	public int[] getDFSPath(int a, int b)
 	{
 		if (a < 0 || b < 0)
-			throw new IllegalArgumentException("Vertice ID must be greater than zero ");
+			throw new IllegalArgumentException("Vertices' ID must be greater than zero ");
 		if (a >= v || b >= v)
-			throw new IllegalArgumentException("One or both vertice IDs inputted do not exist");
+			throw new IllegalArgumentException("One or both vertices' IDs inputted do not exist");
 		int start = a;
 		int end = b;
 		Stack<Integer> steps = new Stack<>();
@@ -195,9 +193,9 @@ public class UndirectedGraph
 	public int[] getBFSPath(int a, int b)
 	{
 		if (a < 0 || b < 0)
-			throw new IllegalArgumentException("Vertice ID must be greater than zero ");
+			throw new IllegalArgumentException("Vertices' IDs must be greater than zero ");
 		if (a >= v || b >= v)
-			throw new IllegalArgumentException("One or both vertice IDs inputted do not exist");
+			throw new IllegalArgumentException("One or both vertices' IDs inputted do not exist");
 		point start = new point(a);
 		Queue<point> steps = new LinkedList<>();
 		steps.add(start);
@@ -240,9 +238,9 @@ public class UndirectedGraph
 	public int[] getBFSTraversal(int a)
 	{
 		if (a < 0)
-			throw new IllegalArgumentException("Vertice ID must be greater than zero ");
+			throw new IllegalArgumentException("Vertex's ID must be greater than zero ");
 		if (a >= v)
-			throw new IllegalArgumentException("Vertice ID inputted do not exist");
+			throw new IllegalArgumentException("Vertex's ID inputted do not exist");
 		Queue<Integer> steps = new LinkedList<>();
 		ArrayList<Integer> visited = new ArrayList<>();
 		visited.add(a);
@@ -271,9 +269,9 @@ public class UndirectedGraph
 	public int[] getDFSTraversal(int a)
 	{
 		if (a < 0)
-			throw new IllegalArgumentException("Vertice ID must be greater than zero ");
+			throw new IllegalArgumentException("Vertex's ID must be greater than zero ");
 		if (a >= v)
-			throw new IllegalArgumentException("Vertice ID inputted do not exist");
+			throw new IllegalArgumentException("Vertex's ID inputted do not exist");
 		int start = a;
 		Stack<Integer> steps = new Stack<>();
 		ArrayList<Integer> visited = new ArrayList<>();
